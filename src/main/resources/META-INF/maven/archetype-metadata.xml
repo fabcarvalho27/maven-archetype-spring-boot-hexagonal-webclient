@@ -1,47 +1,14 @@
 <archetype-descriptor xmlns="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0"
                       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                       xsi:schemaLocation="http://maven.apache.org/plugins/maven-archetype-plugin/archetype-descriptor/1.0.0 http://maven.apache.org/xsd/archetype-descriptor-1.0.0.xsd">
+    <requiredProperties>
+        <requiredProperty key="module"/>
+        <requiredProperty key="entity"/>
+        <requiredProperty key="appName">
+            <defaultValue>${entity}</defaultValue>
+        </requiredProperty>
+    </requiredProperties>
     <fileSets>
-        <fileSet>
-            <directory>example-app-domain</directory>
-            <includes>
-                <include>src/main/java/com/example/domain/model/Example.java</include>
-                <include>src/main/java/com/example/domain/service/ExampleService.java</include>
-                <include>src/main/java/com/example/domain/mapper/ExampleDomainMapper.java</include>
-                <include>src/main/java/com/example/domain/port/in/ExampleServicePort.java</include>
-                <include>src/main/java/com/example/domain/port/out/ExampleRemotePort.java</include>
-                <include>pom.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>example-app-application</directory>
-            <includes>
-                <include>src/main/java/com/example/application/api/ExampleApi.java</include>
-                <include>src/main/java/com/example/application/controller/ExampleController.java</include>
-                <include>src/main/java/com/example/application/mapper/ExampleApplicationMapper.java</include>
-                <include>src/main/java/com/example/application/dto/ExampleResDto.java</include>
-                <include>pom.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>example-app-infrastructure</directory>
-            <includes>
-                <include>src/main/java/com/example/infrastructure/out/ExampleOut.java</include>
-                <include>src/main/java/com/example/infrastructure/dao/ExampleDao.java</include>
-                <include>src/main/java/com/example/infrastructure/mapper/ExampleInfrastructureMapper.java</include>
-                <include>src/main/java/com/example/infrastructure/configuration/BeanConfiguration.java</include>
-                <include>pom.xml</include>
-            </includes>
-        </fileSet>
-        <fileSet>
-            <directory>example-app-config</directory>
-            <includes>
-                <include>src/main/java/com/example/config/config/WebClientConfig.java</include>
-                <include>src/main/java/com/example/config/ExampleConfig.java</include>
-                <include>src/main/resources/application.yaml</include>
-                <include>pom.xml</include>
-            </includes>
-        </fileSet>
         <fileSet encoding="UTF-8" filtered="true">
             <directory/>
             <includes>
@@ -50,4 +17,78 @@
             </includes>
         </fileSet>
     </fileSets>
+    <modules>
+        <module id="${rootArtifactId}-configuration"
+                dir="__module__-configuration"
+                name="${rootArtifactId}-configuration">
+            <fileSets>
+                <fileSet>
+                    <directory>src/test/java</directory>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+                <fileSet filtered="true" encoding="UTF-8">
+                    <directory>src/main/resources</directory>
+                    <includes>
+                        <include>**/*.yaml</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-application"
+                dir="__module__-application"
+                name="${rootArtifactId}-application">
+            <fileSets>
+                <fileSet>
+                    <directory>src/test/java</directory>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-domain"
+                dir="__module__-domain"
+                name="${rootArtifactId}-domain">
+            <fileSets>
+                <fileSet>
+                    <directory>src/test/java</directory>
+                </fileSet>
+                <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                    <directory>src/main/java</directory>
+                    <includes>
+                        <include>**/*.java</include>
+                    </includes>
+                </fileSet>
+            </fileSets>
+        </module>
+        <module id="${rootArtifactId}-infrastructure"
+                dir="__module__-infrastructure"
+                name="${rootArtifactId}-infrastructure">
+            <modules>
+                <module id="${rootArtifactId}-infrastructure-webclient-impl"
+                        dir="__module__-infrastructure-webclient-impl"
+                        name="${rootArtifactId}-infrastructure-webclient-impl">
+                    <fileSets>
+                        <fileSet>
+                            <directory>src/test/java</directory>
+                        </fileSet>
+                        <fileSet filtered="true" packaged="true" encoding="UTF-8">
+                            <directory>src/main/java</directory>
+                            <includes>
+                                <include>**/*.java</include>
+                            </includes>
+                        </fileSet>
+                    </fileSets>
+                </module>
+            </modules>
+        </module>
+    </modules>
 </archetype-descriptor>

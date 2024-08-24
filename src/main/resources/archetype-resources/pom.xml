@@ -15,18 +15,18 @@
     <!-- ====================================================================== -->
     <!-- = P R O J E C T - D E S C R I P T I O N ============================== -->
     <!-- ====================================================================== -->
-    <groupId>com.example</groupId>
-    <artifactId>example-app</artifactId>
+    <groupId>${groupId}</groupId>
+    <artifactId>${artifactId}</artifactId>
     <version>${revision}</version>
     <packaging>pom</packaging>
-    <name>example-app</name>
-    <description>example-app</description>
+    <name>${artifactId}-app</name>
+    <description>${artifactId}-app</description>
 
     <!-- ====================================================================== -->
     <!-- = P R O J E C T - P R O P E R T I E S ================================ -->
     <!-- ====================================================================== -->
     <properties>
-        <revision>1.0-SNAPSHOT</revision>
+        <revision>${version}</revision>
         <java.version>21</java.version>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
@@ -192,9 +192,9 @@
     <!-- = P R O J E C T - M O D U L E S ====================================== -->
     <!-- ====================================================================== -->
     <modules>
-        <module>example-app-domain</module>
-        <module>example-app-application</module>
-        <module>example-app-infrastructure</module>
-        <module>example-app-config</module>
+        <module>${module}-configuration</module>
+        <module>${module}-application</module>
+        <module>${module}-domain</module>
+        <module>${module}-infrastructure</module>
     </modules>
 </project>
