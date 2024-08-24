@@ -24,7 +24,7 @@ This project is a Maven archetype that generates a multi-module Maven project fo
 To generate a new project from the archetype, use the following command:
 ```sh
 mvn archetype:generate \
-    -DarchetypeGroupId=com.fabcarvalho \
+    -DarchetypeGroupId=com.fabcarvalho27 \
     -DarchetypeArtifactId=maven-archetype-spring-boot-webclient \
     -DarchetypeVersion=1.0.0 \
     -DgroupId=com.example \
